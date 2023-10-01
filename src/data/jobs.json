@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "logo": "/assets/images/Ellipse 1.svg",
+    "company": "SAAS Labs",
+    "role": "Product Designer",
+    "location": "Jakarta",
+    "type": "Full time"
+  },
+  {
+    "id": 2,
+    "logo": "/assets/images/Ellipse 1.svg",
+
+    "company": "CareerAcer",
+    "role": "Web Developer",
+    "location": "Bandung",
+    "type": "Remote"
+  },
+  {
+    "id": 3,
+    "logo": "/assets/images/Ellipse 1.svg",
+
+    "company": "Shopee",
+    "role": "Web Developer",
+    "location": "Full time - Remote"
+  }
+]

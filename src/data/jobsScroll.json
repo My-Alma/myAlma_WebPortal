@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "logo": "/assets/images/Ellipse 1.svg",
+    "company": "protonull",
+    "role": "software developer",
+    "location": "Remote",
+    "type": "Full time",
+    "joining": "immediate",
+    "salary": "8,00,000 - 10,00,000",
+    "about": "Protonull is a leading cybersecurity company dedicated to protecting businesses and individuals from cyber threats. With our cutting-edge technology and a team of passionate professionals, we work tirelessly to secure digital environments and keep data safe. If you're ready to make a difference in the world of cybersecurity, join us in our mission to build a safer digital future.",
+    "description": "Are you a talented and motivated software engineer with a passion for cybersecurity? Protonull is seeking a Software Engineer to join our dynamic team. As a Software Engineer at Protonull, you will have the opportunity to work on innovative projects that directly impact the security of our clients and the digital world as a whole.",
+    "qualifications": ""
+  },
+  {
+    "id": 2,
+    "logo": "/assets/images/Ellipse 1.svg",
+
+    "company": "CareerAcer",
+    "role": "Web Developer",
+    "location": "Bandung",
+    "type": "Remote",
+    "joining": "immediate",
+    "salary": "8,00,000 - 10,00,000",
+    "about": "",
+    "description": "",
+    "qualifications": ""
+  },
+  {
+    "id": 3,
+    "logo": "/assets/images/Ellipse 1.svg",
+
+    "company": "Shopee",
+    "role": "Web Developer",
+    "location": "Full time - Remote",
+    "joining": "immediate",
+    "salary": "8,00,000 - 10,00,000",
+    "about": "",
+    "description": "",
+    "qualifications": ""
+  }
+]
