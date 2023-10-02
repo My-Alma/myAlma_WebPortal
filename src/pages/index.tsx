@@ -1,11 +1,13 @@
 import Link from 'next/link';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 import cardData from '../data/jobs.json';
 import cards from '../data/jobsScroll.json';
+import JobDetail from './job-details/[slug]';
+import Modal from '@/components/Modal';
 
 
 
@@ -14,33 +16,50 @@ interface RenderComponent {
   renderedCards: React.ReactNode[]; // Or the specific type you expect
 }
 
+
 const Index : React.FC<RenderComponent> = ({renderedCards}) => {
-  const onCardClick = useCallback(() => {
-    // Add your code here
-  }, []);
+
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
+
+
+  const handleCardClick = (company: string) => {
+    console.log(`Clicked on card with company: ${company}`);
+    setShowModal(true);
+    setSelectedCompany(company);
+
+  };
+
+
+  const closeModal = () => {
+    setSelectedCompany(null); // Reset the selected company
+    setShowModal(false);
+  };
 
   renderedCards = cardData.map((card) => {
     return (
       <div
         key={card.id}
         className="flex w-44 flex-col gap-1 rounded-lg bg-primary p-4 text-white"
+        onClick={() => (handleCardClick(card.company))}
       >
-        <Link href={`/job-details/${card.company}`} className="text-white">
+        {/* <Link href={`/job-details/${card.company}`} className="text-white"> */}
           <div className="flex items-center gap-3">
             <img className="h-6 w-6 rounded-full" src={card.logo} alt="" />
             <div className="font-semibold">{card.company}</div>
           </div>
           <div className="font-medium">{card.role}</div>
           <div className="text-sm">{card.location}</div>
-        </Link>
+        {/* </Link> */}
       </div>
     );
   });
 
   const iCard = cards.map((card) => {
     return (
-      <Link href={`/job-details/${card.company}`} className="text-primary">
-        <div className="bg-grey rounded-lg border p-4  hover:shadow">
+      // <Link href={`/job-details/${card.company}`} className="text-primary">
+        <div className="bg-grey rounded-lg border p-4  hover:shadow" onClick={() => (handleCardClick(card.company))}>
           <div className="flex items-center gap-4">
             <img className="h-10 w-10 rounded-lg" src={card.logo} alt="" />
             <div>
@@ -58,14 +77,15 @@ const Index : React.FC<RenderComponent> = ({renderedCards}) => {
             /> */}
           </div>
         </div>
-      </Link>
+      // </Link>
     );
   });
 
   return (
     <Main meta={<Meta title="My Alma" description="My Alma NIT W Job Page" />}>
       <div className="font-poppins flex flex-col gap-1 bg-white text-left text-base text-black">
-        <div className="bg-white shadow-sm">
+
+     <div className="bg-white shadow-sm">
           <div className="h-88 w-full bg-white" />
           {/* <img
             className="absolute bottom-2 right-5 h-8 w-7"
@@ -118,14 +138,23 @@ const Index : React.FC<RenderComponent> = ({renderedCards}) => {
           </div>
           <div
             className="flex flex-col gap-3 rounded-lg bg-white p-4"
-            onClick={onCardClick}
           >
             {iCard}
           </div>
         </div>
+        {showModal && (
+  <Modal isOpen={showModal} onClose={closeModal} >
+  <button className=' bg-primary text-white' onClick={closeModal}>Close</button>  
+  {selectedCompany && <JobDetail company={selectedCompany} />}
+
+</Modal>
+      )}
       </div>
+
+    
     </Main>
   );
 };
 
 export default Index;
+

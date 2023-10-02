@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import jobData from '../../data/jobsScroll.json';
 
-export default function JobDetail() {
-  const router = useRouter();
-  const company = router.query.slug;
+export default function JobDetail({company} : any) {
+  // const router = useRouter();
+  // const company = router.query.slug;
   const job = jobData.find((job) => job.company === company);
 
 
