@@ -13,10 +13,6 @@ const Index = () => {
     // Add your code here
   }, []);
 
-  const onFrameContainer45Click = useCallback(() => {
-    // Add your code here
-  }, []);
-
   const renderedCards = cardData.map((card) => {
     return (
       <div
