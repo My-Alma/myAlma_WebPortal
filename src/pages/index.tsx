@@ -10,7 +10,6 @@ import cardData from '../data/jobs.json';
 import cards from '../data/jobsScroll.json';
 
 const Index = () => {
-  const router = useRouter();
   const onCardClick = useCallback(() => {
     // Add your code here
   }, []);
