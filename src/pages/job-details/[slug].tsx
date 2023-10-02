@@ -8,13 +8,9 @@ export default function JobDetail() {
   const company = router.query.slug;
   const job = jobData.find((job) => job.company === company);
 
-  const isCompanySelected = false; // You can toggle this based on user interaction
 
   const [isDescriptionSelected, setDes] = useState<boolean>(true);
 
-  const toogleIsDescription = () => {
-    setDes((current) => !current);
-  };
   return (
     <div>
       <div className="font-poppins mx-auto flex min-h-screen max-w-screen-md flex-col bg-white text-base text-black shadow">

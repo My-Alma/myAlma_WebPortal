@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useCallback } from 'react';
-import { Carousel } from 'react-responsive-carousel';
 
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -8,12 +7,19 @@ import { Main } from '@/templates/Main';
 import cardData from '../data/jobs.json';
 import cards from '../data/jobsScroll.json';
 
-const Index = () => {
+
+
+interface RenderComponent {
+  // Other props...
+  renderedCards: React.ReactNode[]; // Or the specific type you expect
+}
+
+const Index : React.FC<RenderComponent> = ({renderedCards}) => {
   const onCardClick = useCallback(() => {
     // Add your code here
   }, []);
 
-  const renderedCards = cardData.map((card) => {
+  renderedCards = cardData.map((card) => {
     return (
       <div
         key={card.id}
@@ -95,12 +101,7 @@ const Index = () => {
           </div>
         </div>
         <div className=" px-6 py-4 text-lg">
-          <Carousel
-            showArrows={false}
-            showIndicators={false}
-            showStatus={false}
-            showThumbs={false}
-          >
+
             <div className="flex flex-wrap gap-3 overflow-x-auto">
               {renderedCards.map((card, index) => (
                 <div key={index} className="flex">
@@ -108,7 +109,6 @@ const Index = () => {
                 </div>
               ))}
             </div>
-          </Carousel>
         </div>
 
         <div className="flex flex-col gap-6 px-6 py-4 text-xl">
